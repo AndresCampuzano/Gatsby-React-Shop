@@ -1,14 +1,14 @@
-import styled from "styled-components"
-import { above } from "./index"
+import styled from 'styled-components';
+import { above } from './index';
 
 export const colors = {
-  green: "#98ca3f",
-  orange: "#f8b71c",
-  gray: "#969696",
-  darkBlue: "#1c3643",
-  lightBlue: "#1e5372",
-  softGray: "#f6f8f9",
-}
+  green: '#98ca3f',
+  orange: '#f8b71c',
+  gray: '#969696',
+  darkBlue: '#1c3643',
+  lightBlue: '#1e5372',
+  softGray: '#f6f8f9',
+};
 
 export const StyledHeader = styled.header`
   background-image: linear-gradient(
@@ -58,7 +58,7 @@ export const StyledHeader = styled.header`
       font-size: 0.8rem;
     }
   `}
-`
+`;
 export const StyledJumbo = styled.div`
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ export const StyledJumbo = styled.div`
   margin-bottom: 5rem;
   overflow: hidden;
   position: relative;
-  
+  /* cursor: pointer; */
   div{
     padding: 1rem;
     width: 35vw;
@@ -142,7 +142,7 @@ export const StyledJumbo = styled.div`
     `}
   };
 
-`
+`;
 
 export const StyledProducts = styled.div`
   background-color: ${colors.softGray};
@@ -169,6 +169,7 @@ export const StyledProducts = styled.div`
     padding-bottom: 1rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
     p {
       margin: 0;
       color: ${colors.green};
@@ -206,7 +207,7 @@ export const StyledProducts = styled.div`
       padding: 0 10rem;
     `};
   }
-`
+`;
 
 export const StyledProductDetail = styled.div`
   padding: 1rem;
@@ -261,7 +262,7 @@ export const StyledProductDetail = styled.div`
     height: 82vh;
     padding: 2rem 10rem;
   `}
-`
+`;
 
 export const StyledCart = styled.div`
   padding: 1rem;
@@ -302,14 +303,14 @@ export const StyledCart = styled.div`
   ${above.large`
     padding: 5rem 10rem;
   `}
-`
+`;
 
 export const MenuItem = styled.li`
   margin: 0;
   color: white;
   font-size: 1.3rem;
   font-weight: 100;
-  padding: ${({ margin }) => (margin ? "0 13px 0 13px" : "0 0 0 13px")};
+  padding: ${({ margin }) => (margin ? '0 13px 0 13px' : '0 0 0 13px')};
   a {
     color: white;
     text-decoration: none;
@@ -319,14 +320,14 @@ export const MenuItem = styled.li`
     width: 0.4rem;
   }
   ${above.medium`
-    border-right: ${({ margin }) => (margin ? "1px solid white" : "")};
-    padding: ${({ margin }) => (margin ? "0 26px 0 26px" : "0 0 0 26px")};
+    border-right: ${({ margin }) => (margin ? '1px solid white' : '')};
+    padding: ${({ margin }) => (margin ? '0 26px 0 26px' : '0 0 0 26px')};
     & img{
       margin-right: 5px; 
       width: 0.7rem;
     }
   `}
-`
+`;
 
 export const Footer = styled.footer`
   background-color: ${colors.darkBlue};
@@ -342,7 +343,7 @@ export const Footer = styled.footer`
     margin-left: 0.3rem;
     text-decoration: none;
   }
-`
+`;
 
 export const Tag = styled.span`
   padding: 0.3rem 1.5rem;
@@ -351,7 +352,7 @@ export const Tag = styled.span`
   margin: 0.5rem 0;
   color: white;
   border-radius: 5px;
-`
+`;
 
 export const SizeButton = styled.button`
   padding: calc(0.4rem + 1px);
@@ -366,13 +367,13 @@ export const SizeButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
-`
+`;
 
 export const QtyButton = styled.button`
   padding: 0.4rem;
   background-color: transparent;
   border: 2px solid rgba(0, 0, 0, 0.1);
-`
+`;
 export const QtySelect = styled.div`
   display: flex;
   margin: 0.6rem 0;
@@ -397,7 +398,7 @@ export const QtySelect = styled.div`
     max-width: 40px;
     max-height: 40px;
   }
-`
+`;
 export const SizeSelect = styled.div`
   display: grid;
   width: 10rem;
@@ -408,30 +409,30 @@ export const SizeSelect = styled.div`
   button:nth-child(${props => props.selected}) {
     border: 2px solid rgba(0, 0, 0, 0.3);
   }
-`
+`;
 export const Button = styled.button`
   cursor: pointer;
   background-color: ${({ type }) =>
-    type === "outline" ? "transparent" : colors.green};
-  color: ${({ type }) => (type === "outline" ? colors.darkBlue : "white")};
+    type === 'outline' ? 'transparent' : colors.green};
+  color: ${({ type }) => (type === 'outline' ? colors.darkBlue : 'white')};
   font-size: 0.9rem;
   padding: 0.6rem 1rem;
   font-weight: 500;
   border: ${({ type }) =>
-    type === "outline"
+    type === 'outline'
       ? `3px solid ${colors.darkBlue}`
       : `3px solid ${colors.green}`};
   border-radius: 12px;
   a {
     text-decoration: none;
-    color: ${({ type }) => (type === "outline" ? colors.darkBlue : "white")};
+    color: ${({ type }) => (type === 'outline' ? colors.darkBlue : 'white')};
   }
   &:disabled {
     background-color: ${colors.gray};
     border-color: ${colors.gray};
     cursor: not-allowed;
   }
-`
+`;
 
 export const SelectStars = styled.div`
   span {
@@ -442,7 +443,7 @@ export const SelectStars = styled.div`
   span:nth-child(-n + ${props => props.selected}) {
     color: ${colors.orange};
   }
-`
+`;
 export const Purchase = styled.div`
   width: 100vw;
   height: calc(100vh - 4.5rem - 101px);
@@ -460,7 +461,7 @@ export const Purchase = styled.div`
   span {
     font-size: 2rem;
   }
-`
+`;
 
 export const Content = styled.div`
   ${above.medium`
@@ -469,4 +470,4 @@ export const Content = styled.div`
   ${above.large`
     padding-top: 4.5rem;
   `}
-`
+`;
