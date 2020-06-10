@@ -2,7 +2,7 @@ const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const productTemplate = path.resolve(`src/templates/ProductTemplate.js`);
+  const productTemplate = path.resolve(`./src/templates/ProductTemplate.js`);
   const result = await graphql(`
     query GET_SKUS {
       allStripeSku {
@@ -14,12 +14,21 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               description
               images
+              metadata {
+                wear
+              }
             }
           }
         }
       }
     }
   `);
+
+  // Rendering each product in Home:
+  // index > Products
+
+  // Rendering each product in it's dynamic page:
+  // gatsby-node.js > ProductTemplate > ProductDetail
 
   if (result.errors) {
     throw result.errors;
@@ -29,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `${node.id}`,
       component: productTemplate,
+      context: node,
     });
   });
 };

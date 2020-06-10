@@ -22,6 +22,9 @@ export const query = graphql`
             name
             description
             images
+            metadata {
+              wear
+            }
           }
         }
       }
@@ -29,8 +32,14 @@ export const query = graphql`
   }
 `;
 
+// Rendering each product in Home:
+// index > Products
+
+// Rendering each product in it's dynamic page:
+// gatsby-node.js > ProductTemplate > ProductDetail
+
 const IndexPage = ({ data }) => {
-  console.log(data);
+  console.log('from Index: ', data);
   return (
     <>
       <SEO title="Home" />
