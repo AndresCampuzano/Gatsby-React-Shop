@@ -9,7 +9,7 @@ import {
   QtySelect,
   StyledProductDetail,
 } from '../styles/components';
-import { SEO } from './';
+import { SEO, Stars } from './';
 
 export default function ProductDetail({ id, price, product }) {
   const formatePrice = priceFormat(price);
@@ -18,14 +18,14 @@ export default function ProductDetail({ id, price, product }) {
   console.log(product.metadata.wear);
   return (
     <StyledProductDetail>
-      <p>this is a test view</p>
       <SEO title={product.name} />
-      <p>{product.description}</p>
       <img src={product.images} alt={product.name} />
       <div>
         <Tag>Top products</Tag>
         <h2>{product.name}</h2>
         <b>USD {formatePrice}</b>
+        <Stars />
+        <small>{product.description}</small>
         {product.metadata.wear && (
           <SizeSelect selected={size}>
             <SizeButton onClick={() => setSize(1)}>XS</SizeButton>
@@ -40,6 +40,7 @@ export default function ProductDetail({ id, price, product }) {
           <input type="text" disabled value={qty} />
           <button onClick={() => setQty(qty + 1)}>+</button>
         </QtySelect>
+        <Button>Add to cart 🛒</Button>
       </div>
     </StyledProductDetail>
   );
