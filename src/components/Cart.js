@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import { Button, StyledCart } from '../styles/components';
-import { priceFormat } from '../utils/priceFormat.js';
+import priceFormat from '../utils/priceFormat';
 import { CartContext } from '../context';
 
 export default function Cart() {
   const { cart } = useContext(CartContext);
+  console.log('from cart: ', cart);
   return (
     <StyledCart>
       <h2>Your cart</h2>
@@ -18,13 +19,14 @@ export default function Cart() {
             <th>Total</th>
           </tr>
           {cart.map(x => (
-            <tr key={x.sku}>
+            <tr key={x.id}>
               <td>
-                <img src={x.metadata.image} alt={x.name} /> {x.name}
+                <img src={x.product.images} alt={x.product.name} />{' '}
+                {x.product.name}
               </td>
               <td>USD {priceFormat(x.price)}</td>
-              <td>{x.quantity}</td>
-              <td>{priceFormat(x.quantity * x.price)}</td>
+              <td>{x.qty}</td>
+              <td>{priceFormat(x.qty * x.price)}</td>
             </tr>
           ))}
         </tbody>

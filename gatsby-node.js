@@ -18,6 +18,10 @@ exports.createPages = async ({ graphql, actions }) => {
                 wear
               }
             }
+            inventory {
+              type
+              quantity
+            }
           }
         }
       }
@@ -29,6 +33,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Rendering each product in it's dynamic page:
   // gatsby-node.js > ProductTemplate > ProductDetail
+
+  // In order to update a SKU:
+  // stripe skus update sku_HROAoDnqikdMtt -d "inventory[type]=finite" -d "inventory[quantity]=500"
 
   if (result.errors) {
     throw result.errors;

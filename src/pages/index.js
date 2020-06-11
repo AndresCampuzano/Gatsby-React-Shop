@@ -26,6 +26,10 @@ export const query = graphql`
               wear
             }
           }
+          inventory {
+            type
+            quantity
+          }
         }
       }
     }
@@ -35,7 +39,7 @@ export const query = graphql`
 // Rendering each product in Home:
 // index > Products
 
-// Rendering each product in it's dynamic page:
+// Rendering each product in it's dynamic page (detail):
 // gatsby-node.js > ProductTemplate > ProductDetail
 
 const IndexPage = ({ data }) => {

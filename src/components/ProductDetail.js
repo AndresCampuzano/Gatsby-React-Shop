@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import priceFormat from '../utils/priceFormat';
+import { CartContext } from '../context';
 import {
   Tag,
   SizeButton,
-  QtyButton,
+  // QtyButton,
   SizeSelect,
   Button,
   QtySelect,
@@ -11,11 +12,16 @@ import {
 } from '../styles/components';
 import { SEO, Stars } from './';
 
-export default function ProductDetail({ id, price, product }) {
+export default function ProductDetail({ id, price, product, inventory }) {
   const formatePrice = priceFormat(price);
   const [size, setSize] = useState(2);
   const [qty, setQty] = useState(1);
-  console.log(product.metadata.wear);
+  const { addToCart } = useContext(CartContext);
+  // console.log(product.metadata.wear);
+
+  const handleSubmit = () => {
+    addToCart({ price, id, product, inventory, qty });
+  };
   return (
     <StyledProductDetail>
       <SEO title={product.name} />
@@ -40,7 +46,7 @@ export default function ProductDetail({ id, price, product }) {
           <input type="text" disabled value={qty} />
           <button onClick={() => setQty(qty + 1)}>+</button>
         </QtySelect>
-        <Button>Add to cart 🛒</Button>
+        <Button onClick={handleSubmit}>Add to cart</Button>
       </div>
     </StyledProductDetail>
   );
